@@ -1,0 +1,18 @@
+<svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="750px" height="400px" viewBox="0 0  750 400" preserveAspectRatio="xMidYMid meet">
+    <!--<rect id="svgEditorBackground" x="0" y="0" width="400" height="400" style="fill: none; stroke: none;"/>-->
+    <!-- upper right 8 -->
+    <rect x="125" y="125" stroke="black" id="ur8-occlusal" style="stroke-width: 1px;" width="150" height="150" fill="white"/>
+    <polygon stroke="black" id="ur8-buccal" style="stroke-width: 1px;" points="50 50 350 50 275 125 125 125" fill="white" />
+    <polygon stroke="black" id="ur8-mesial" style="stroke-width: 1px;" points="350 50 350 350 275 275 275 125" fill="white" />
+    <polygon stroke="black" id="ur8-palatal" style="stroke-width: 1px;" points="350 350 50 350 125 275 275 275" fill="white" />
+    <polygon stroke="black" id="ur8-distal" style="stroke-width: 1px;" points="50 350 50 50 125 125 125 275" fill="white" />
+    
+    <!-- Upper right 1 -->
+    <rect x="475" y="162.5" stroke="black" id="ur8-occlusal" style="stroke-width: 1px;" width="150" height="75" fill="white"/>
+    <polygon stroke="black" id="ur8-buccal" style="stroke-width: 1px;" points="400 50 700 50 625 162.5 475 162.5" fill="white" />
+    <polygon stroke="black" id="ur8-mesial" style="stroke-width: 1px;" points="700 50 700 350 625 237.5 625 162.5" fill="white" />
+    <polygon stroke="black" id="ur8-palatal" style="stroke-width: 1px;" points="700 350 400 350 475 237.5 625 237.5" fill="white" />
+    <polygon stroke="black" id="ur8-distal" style="stroke-width: 1px;" points="400 350 400 50 475 162.5 475 237.5" fill="white" />
+</svg>
