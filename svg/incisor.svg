@@ -1,0 +1,10 @@
+<svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="300px" height="300px" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet">
+    <!-- upper right 1 -->
+    <rect x="75" y="75" stroke="black" id="ur8-occlusal" style="stroke-width: 2px;" width="150" height="150" fill="white"/>
+    <polygon stroke="black" id="ur8-buccal" style="stroke-width: 2px;" points="0 0 300 0 225 112.5 75 112.5" fill="white" />
+    <polygon stroke="black" id="ur8-mesial" style="stroke-width: 2px;" points="300 0 300 300 225 187.5 226 112.5" fill="white" />
+    <polygon stroke="black" id="ur8-palatal" style="stroke-width: 2px;" points="300 300 0 300 75 187.5 225 187.5" fill="white" />
+    <polygon stroke="black" id="ur8-distal" style="stroke-width: 2px;" points="0 300 0 0 75 112.5 75 187.5" fill="white" />
+</svg>

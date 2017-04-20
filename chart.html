@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html style="height:100%;">
+<html style="width:100%;">
     <head>
         <title>SVG dental charting</title>
-        <script src="svg.js"></script>
-        <script src="chart.js"></script>
+        <script src="js/snap.svg.js"></script>
+        <script src="js/chart.js"></script>
     </head>
-    <body style="height:100%;">
-        <object id="molar" data="molar.svg" type="image/svg+xml" style="height:100%;" onload="init"></object>
+    <body style="width:500px;">
+        <object id="incisor" data="svg/incisor.svg" type="image/svg+xml"></object>
+        <object id="premolar" data="svg/premolar.svg" type="image/svg+xml"></object>
+        <object id="molar" data="svg/molar.svg" type="image/svg+xml"></object>
     </body>
 </html>
