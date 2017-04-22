@@ -2,18 +2,18 @@
     xmlns="http://www.w3.org/2000/svg" 
     xmlns:xlink="http://www.w3.org/1999/xlink" width="400px" height="300px" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
     <!-- upper right 8 -->
-    <g id="ur8" class="upper right eight molar">
-        <rect x="75" y="75" stroke="black" id="ur8-disto-occlusal" style="stroke-width: 5px;" width="125" height="150" fill="white"/>
-        <rect x="200" y="75" stroke="black" id="ur8-mesio-occlusal" style="stroke-width: 5px;" width="125" height="150" fill="white"/>
+    <g id="molar-group" class="molar">
+        <rect x="75" y="75" stroke="black" id="disto-occlusal" style="stroke-width: 5px;" width="125" height="150" fill="white"/>
+        <rect x="200" y="75" stroke="black" id="mesio-occlusal" style="stroke-width: 5px;" width="125" height="150" fill="white"/>
 
-        <polygon stroke="black" id="ur8-mesio-buccal" style="stroke-width: 5px;" points="0 0 200 0 200 75 75 75" fill="white" />
-        <polygon stroke="black" id="ur8-disto-buccal" style="stroke-width: 5px;" points="200 0 400 0 325 75 200 75" fill="white" />
+        <polygon stroke="black" id="mesio-buccal" style="stroke-width: 5px;" points="0 0 200 0 200 75 75 75" fill="white" />
+        <polygon stroke="black" id="disto-buccal" style="stroke-width: 5px;" points="200 0 400 0 325 75 200 75" fill="white" />
 
-        <polygon stroke="black" id="ur8-mesial" style="stroke-width: 5px;" points="400 0 400 300 325 225 325 75" fill="white" />
+        <polygon stroke="black" id="mesial" style="stroke-width: 5px;" points="400 0 400 300 325 225 325 75" fill="white" />
 
-        <polygon stroke="black" id="ur8-disto-palatal" style="stroke-width: 5px;" points="400 300 200 300 200 225 325 225" fill="white" />
-        <polygon stroke="black" id="ur8-mesio-palatal" style="stroke-width: 5px;" points="200 300 0 300 75 225 200 225" fill="white" />
+        <polygon stroke="black" id="disto-inner" style="stroke-width: 5px;" points="400 300 200 300 200 225 325 225" fill="white" />
+        <polygon stroke="black" id="mesio-inner" style="stroke-width: 5px;" points="200 300 0 300 75 225 200 225" fill="white" />
 
-        <polygon stroke="black" id="ur8-distal" style="stroke-width: 5px;" points="0 300 0 0 75 75 75 225" fill="white" />
+        <polygon stroke="black" id="distal" style="stroke-width: 5px;" points="0 300 0 0 75 75 75 225" fill="white" />
     </g>
 </svg>
