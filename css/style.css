@@ -1,0 +1,17 @@
+html {
+  width: 100%;
+  font-family: 'Noto Sans', sans-serif; }
+
+body {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto; }
+
+#chart {
+  width: 100%; }
+  #chart rect, #chart polygon {
+    stroke-width: 5px;
+    stroke: black;
+    fill: white; }
+
+/*# sourceMappingURL=style.css.map */

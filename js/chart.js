@@ -1,37 +1,37 @@
-var DentalChart = function () {
-    //===============================================================================================//
-    // Chart values at SVG scale (where incisors and pre-molars and 300x300, for example)            //
-    //===============================================================================================//
+function DentalChart(paper) {
     // teeth - numbers
-    const NUM_MOLARS_QUADRANT = 3;
-    const NUM_PREMOLARS_QUADRANT = 2;
-    const NUM_INCISORS_QUADRANT = 3;
-    const NUM_TEETH_QUADRANT = NUM_MOLARS_QUADRANT + NUM_PREMOLARS_QUADRANT + NUM_INCISORS_QUADRANT;
+    this.NUM_MOLARS_QUADRANT = 3;
+    this.NUM_PREMOLARS_QUADRANT = 2;
+    this.NUM_INCISORS_QUADRANT = 3;
+    this.NUM_TEETH_QUADRANT = this.NUM_MOLARS_QUADRANT + this.NUM_PREMOLARS_QUADRANT
+        + this.NUM_INCISORS_QUADRANT;
 
     // teeth - dimensions
-    const INCISOR_WIDTH = 300;
-    const INCISOR_HEIGHT = 300;
-    const PREMOLAR_WIDTH = 300;
-    const PREMOLAR_HEIGHT = 300;
-    const MOLAR_WIDTH = 400;
-    const MOLAR_HEIGHT = 300;
+    this.INCISOR_WIDTH = 300;
+    this.PREMOLAR_WIDTH = 300;
+    this.MOLAR_WIDTH = 400;
+    this.TOOTH_HEIGHT = 300;
 
     // spacing
-    const EDGE_SPACING = 20;
-    const TOOTH_SPACING = 20;
-    const MIDLINE_SPACING = 100;
+    this.EDGE_SPACING = 20;
+    this.TOOTH_SPACING = 20;
+    this.MIDLINE_SPACING = 100;
 
     // quadrant is the teeth including inner spacing (i.e. horizontally between teeth)
-    const QUADRANT_WIDTH = (INCISOR_WIDTH * NUM_INCISORS_QUADRANT)
-        + (PREMOLAR_WIDTH * NUM_PREMOLARS_QUADRANT) + (MOLAR_WIDTH * NUM_MOLARS_QUADRANT)
-        + (TOOTH_SPACING * (NUM_TEETH_QUADRANT - 1));
+    this.QUADRANT_WIDTH = (this.INCISOR_WIDTH * this.NUM_INCISORS_QUADRANT)
+        + (this.PREMOLAR_WIDTH * this.NUM_PREMOLARS_QUADRANT)
+        + (this.MOLAR_WIDTH * this.NUM_MOLARS_QUADRANT)
+        + (this.TOOTH_SPACING * (this.NUM_TEETH_QUADRANT - 1));
 
     // chart width includes teeth, spaces between the teeth and midline and edge spacing
-    const CHART_WIDTH = (QUADRANT_WIDTH * 2) + (EDGE_SPACING * 2) + MIDLINE_SPACING;
+    this.CHART_WIDTH = (this.QUADRANT_WIDTH * 2) + (this.EDGE_SPACING * 2) + this.MIDLINE_SPACING;
 
-    //===============================================================================================//
-    // SVG elements to include in main "canvas"                                                      //
-    //===============================================================================================
+    // chart height is two sets of teeth, midline and edge spacing
+    this.CHART_HEIGHT = (this.TOOTH_HEIGHT * 2) + (this.EDGE_SPACING * 2) + this.MIDLINE_SPACING;
+
+    // expected to be the whole SVG
+    this.paper = paper;
+
     /**
      * Draws a molar (scale 400x300 with mid-line). Returns group containing all groups drawn.
      * @param {Paper} paper Snap.SVG paper object
@@ -39,8 +39,8 @@ var DentalChart = function () {
      * @param {int} originY Top left point Y coordinate in global system
      * @param {string} zpToothId Zsigmondy-Palmer notation tooth ID - used as prefix for elements
      */
-    this.drawPreMolar = function (paper, originX, originY, zpToothId) {
-        var preMolarGroup = paper.group();
+    this.drawPreMolar = function (originX, originY, zpToothId) {
+        var preMolarGroup = this.paper.group();
         preMolarGroup.attr({ id: zpToothId });
         preMolarGroup.transform(
             Snap.format('translate({x},{y})', {
@@ -51,61 +51,60 @@ var DentalChart = function () {
 
         // For each surface, draw the shape and give it an ID
         // Occlusal: like, the top
-        var occlusal = paper.rect([
-            0.25 * PREMOLAR_WIDTH, 0.25 * PREMOLAR_HEIGHT,
-            0.5 * PREMOLAR_WIDTH, 0.5 * PREMOLAR_HEIGHT
-        ]);
+        var occlusal = this.paper.rect(
+            0.25 * this.PREMOLAR_WIDTH, 0.25 * this.TOOTH_HEIGHT,
+            0.5 * this.PREMOLAR_WIDTH, 0.5 * this.TOOTH_HEIGHT
+        );
         occlusal.attr({
             id: zpToothId + '-occlusal'
         });
 
         // Buccal: by the cheek
-        var buccal = paper.polygon([
+        var buccal = this.paper.polygon(
             0, 0,
-            PREMOLAR_WIDTH, 0,
-            0.75 * PREMOLAR_WIDTH, 0.25 * PREMOLAR_HEIGHT,
-            0.25 * PREMOLAR_WIDTH, 0.25 * PREMOLAR_HEIGHT
-        ]);
+            this.PREMOLAR_WIDTH, 0,
+            0.75 * this.PREMOLAR_WIDTH, 0.25 * this.TOOTH_HEIGHT,
+            0.25 * this.PREMOLAR_WIDTH, 0.25 * this.TOOTH_HEIGHT
+        );
         buccal.attr({
             id: zpToothId + '-buccal'
         });
 
         // Mesial: towards the front
-        var mesial = paper.polygon([
-            0, 0,
-            PREMOLAR_WIDTH, 0,
-            0.75 * PREMOLAR_WIDTH, 0.25 * PREMOLAR_HEIGHT,
-            0.25 * PREMOLAR_WIDTH, 0.25 * PREMOLAR_HEIGHT
-        ]);
+        var mesial = this.paper.polygon(
+            this.PREMOLAR_WIDTH, 0,
+            this.PREMOLAR_WIDTH, this.TOOTH_HEIGHT,
+            0.75 * this.PREMOLAR_WIDTH, 0.75 * this.TOOTH_HEIGHT,
+            0.75 * this.PREMOLAR_WIDTH, 0.25 * this.TOOTH_HEIGHT
+        );
         mesial.attr({
             id: zpToothId + '-mesial'
         });
 
         // Palatal: by the roof of the mouth (upper only)
-        var palatal = paper.polygon([
-            0, 0,
-            PREMOLAR_WIDTH, 0,
-            0.75 * PREMOLAR_WIDTH, 0.25 * PREMOLAR_HEIGHT,
-            0.25 * PREMOLAR_WIDTH, 0.25 * PREMOLAR_HEIGHT
-        ]);
+        var palatal = this.paper.polygon(
+           this.PREMOLAR_WIDTH, this.TOOTH_HEIGHT,
+            0, this.TOOTH_HEIGHT,
+            0.25 * this.PREMOLAR_WIDTH, 0.75 * this.TOOTH_HEIGHT,
+            0.75 * this.PREMOLAR_WIDTH, 0.75 * this.TOOTH_HEIGHT
+        );
         palatal.attr({
             id: zpToothId + '-palatal'
         });
 
-        var distal = paper.polygon([
+        var distal = this.paper.polygon(
+            0, this.TOOTH_HEIGHT,
             0, 0,
-            PREMOLAR_WIDTH, 0,
-            0.75 * PREMOLAR_WIDTH, 0.25 * PREMOLAR_HEIGHT,
-            0.25 * PREMOLAR_WIDTH, 0.25 * PREMOLAR_HEIGHT
-        ]);
+            0.25 * this.PREMOLAR_WIDTH, 0.25 * this.TOOTH_HEIGHT,
+            0.25 * this.PREMOLAR_WIDTH, 0.75 * this.TOOTH_HEIGHT
+        );
         distal.attr({
             id: zpToothId + '-distal'
         });
+
+        preMolarGroup.add([occlusal, buccal, mesial, palatal, distal])
     };
 
-    //===============================================================================================//
-    // Drawing and handling                                                                          //
-    //===============================================================================================//
     /**
      * Draws the teeth and midlines on a given Snap SVG object
      */
@@ -119,4 +118,12 @@ var DentalChart = function () {
  */
 window.onload = function () {
     var chartPaper = Snap('#chart');
+    var dentalChart = new DentalChart(chartPaper);
+
+    // viewbox actually needs to be set on HTML element - fixable?
+    /*chartPaper.attr({
+        viewbox: '0 0 ' + dentalChart.CHART_WIDTH + ' ' + dentalChart.CHART_HEIGHT
+    });*/
+
+    dentalChart.drawPreMolar(0, 0, 'ur8');
 }

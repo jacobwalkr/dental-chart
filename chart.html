@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html style="width:100%;">
+<html>
     <head>
         <title>SVG dental charting</title>
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet" />
         <script src="js/snap.svg.js"></script>
         <script src="js/chart.js"></script>
     </head>
-    <body style="width:500px;">
-        <object id="incisor" data="svg/incisor.svg" type="image/svg+xml"></object>
-        <object id="premolar" data="svg/premolar.svg" type="image/svg+xml"></object>
-        <object id="molar" data="svg/molar.svg" type="image/svg+xml"></object>
+    <body>
+        <h1>Dental Charting Demo</h1>
+
+        <!-- FIXME: viewbox needs to be there when the element is created -->
+        <svg id="chart" preserveAspectRatio="xMidYMid meet" viewbox="0 0 5820 740"></svg>
     </body>
 </html>
