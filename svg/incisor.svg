@@ -6,7 +6,7 @@
         <rect x="75" y="75" stroke="black" id="incisal" style="stroke-width: 5px;" width="150" height="150" fill="white"/>
         <polygon stroke="black" id="buccal" style="stroke-width: 5px;" points="0 0 300 0 225 112.5 75 112.5" fill="white" />    
         <polygon stroke="black" id="mesial" style="stroke-width: 5px;" points="300 0 300 300 225 187.5 226 112.5" fill="white" />
-        <polygon stroke="black" id="inner" style="stroke-width: 5px;" points="300 300 0 300 75 187.5 225 187.5" fill="white" />
+        <polygon stroke="black" id="palatal" style="stroke-width: 5px;" points="300 300 0 300 75 187.5 225 187.5" fill="white" />
         <polygon stroke="black" id="distal" style="stroke-width: 5px;" points="0 300 0 0 75 112.5 75 187.5" fill="white" />
     </g>
 </svg>

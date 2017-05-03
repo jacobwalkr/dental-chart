@@ -16,5 +16,23 @@ body {
         stroke-width: 5px;
         stroke: black;
         fill: white;
+
+        .selected {
+            fill: lightskyblue;
+        }
+
+        .amalgam {
+            fill: grey;
+        }
+
+        .extract {
+            fill: black !important;
+        }
     }
+}
+
+select, button {
+    /*width: 20em;
+    height: 3em;*/
+    font-size: 2em;
 }

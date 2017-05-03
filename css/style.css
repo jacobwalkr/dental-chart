@@ -13,5 +13,16 @@ body {
     stroke-width: 5px;
     stroke: black;
     fill: white; }
+    #chart rect .selected, #chart polygon .selected {
+      fill: lightskyblue; }
+    #chart rect .amalgam, #chart polygon .amalgam {
+      fill: grey; }
+    #chart rect .extract, #chart polygon .extract {
+      fill: black !important; }
+
+select, button {
+  /*width: 20em;
+  height: 3em;*/
+  font-size: 2em; }
 
 /*# sourceMappingURL=style.css.map */
