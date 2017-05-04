@@ -9,8 +9,14 @@ body {
     margin: 0 auto;
 }
 
+section.treatment-form {
+    width: 100%;
+    text-align: center;
+}
+
 #chart {
     width: 100%;
+    margin: 30px 0;
     
     rect, polygon {
         stroke-width: 5px;

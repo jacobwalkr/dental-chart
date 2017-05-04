@@ -7,8 +7,13 @@ body {
   max-width: 1000px;
   margin: 0 auto; }
 
+section.treatment-form {
+  width: 100%;
+  text-align: center; }
+
 #chart {
-  width: 100%; }
+  width: 100%;
+  margin: 30px 0; }
   #chart rect, #chart polygon {
     stroke-width: 5px;
     stroke: black;

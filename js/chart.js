@@ -31,6 +31,70 @@ function DentalChart(paper) {
 
     // expected to be the whole SVG
     this.paper = paper;
+
+    // draw the chart!
+    // e = edge, m = molar, p = premolar, i = incisor, l = midline
+    var arch = "emememepepeieieilieieiepepememem".split('');
+    var ys = [20, 420];
+
+    for (yi in ys) {
+        var y = ys[yi];
+        var from_left = 0;
+
+        for (item in arch) {
+            var target;
+
+            switch (arch[item]) {
+                // test the spaces first
+                case 'e':
+                    from_left += this.EDGE_SPACING;
+                    continue;
+                case 'l':
+                    from_left += this.MIDLINE_SPACING;
+                    continue;
+                // not a space? congratulations! it's a tooth!
+                case 'm':
+                    target = 'molar.svg';
+                    this_x = from_left;
+                    from_left += this.MOLAR_WIDTH;
+                    break;
+                case 'p':
+                    target = 'premolar.svg';
+                    this_x = from_left;
+                    from_left += this.PREMOLAR_WIDTH;
+                    break;
+                case 'i':
+                    target = 'incisor.svg';
+                    this_x = from_left;
+                    from_left += this.INCISOR_WIDTH;
+                    break;
+            }
+
+            if (target === undefined) {
+                continue;
+            }
+
+            Snap.load('svg/' + target, function (frag) {
+                var group = frag.select('g');
+
+                group.transform(Snap.format('translate({x},{y})', {
+                    x: this.x,
+                    y: this.y
+                }));
+
+                this.paper.append(group);
+            }, {
+                paper: this.paper,
+                x: this_x,
+                y: y
+            });
+        }
+    }
+
+    // register a click event
+    this.paper.click(function (event) {
+        event.target.style.fill = 'red';
+    })
 }
 
 /**
